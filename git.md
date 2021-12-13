@@ -45,3 +45,66 @@ git checkout 文件名
 git reset HEAD  文件名
 # 如果想继续撤销工作区代码，执行撤销工作区代码：git checkout 文件名 即可
 
+
+# 多人协作
+
+要同步服务器代码就执行：git pull
+本地仓库记录版本就执行：git commit -am '版本描述'
+推送代码到服务器就执行：git push
+
+# 编辑代码前要先pull，编辑完再commit，最后推送是push
+
+# 解决冲突
+
+原则：谁冲突谁解决，并且一定要协商解决
+方案：保留所有代码 或者 保留某一人代码
+解决完冲突代码后，依然需要add、commit、push
+
+# 标签
+
+## 在本地打标签
+
+ git tag -a 标签名 -m '标签描述'
+ 例：
+ git tag -a v1.0 -m 'version 1.0'
+
+## 推送标签到远程仓库
+
+ git push origin 标签名
+ 例：
+ git push origin v1.0
+
+## 删除本地标签
+  git tag -d 标签名
+## 删除远程仓库标签
+  git push origin --delete tag 标签名
+
+# 分支
+
+## 查看分支
+
+  git branch
+
+## 创建并切换到dev分支
+
+ git checkout -b dev # 不加-b为切换分支
+
+## 将分支推送到远程
+
+ git push -u origin dev
+或者执行如下语句：
+ git push --set-upstream origin dev
+
+## dev分支合并到master分支
+
+### 先切换到master分支
+
+git checkout master
+
+### dev分支合并到master分支
+
+  git merge dev
+
+合并分支默认在本地完成，合并后直接推送即可
+
+git push
