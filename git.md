@@ -18,10 +18,13 @@ git add . # 添加文件夹下所有未跟踪文件
 7、将暂存区文件提交到仓库区
 git commit -m '文件描述'
 
+# 如果把-m 换成 -am ，代码将add和commit 操作合并
+
 8、编辑文件，然后用add和commit反复提交
 
 
 ————————————————————git回退操作——————————————————————
+1、仓库区回退
 方法1:
 git reset --hard HEAD~1
 
@@ -33,3 +36,12 @@ git reset --hard HEAD~1
 
 方法2:
 git reset --hard 版本号
+
+
+2、撤销工作区代码
+git checkout 文件名
+
+3、将暂存区代码撤销到工作区
+git reset HEAD  文件名
+# 如果想继续撤销工作区代码，执行撤销工作区代码：git checkout 文件名 即可
+
